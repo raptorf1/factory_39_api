@@ -12,7 +12,7 @@ module PriceService
     when "lorry"
       calulation_algorithm * 2
     else
-      "Error: unknown vehicle type!"
+      "For the type of transport: #{vehicle}, please speak with one of our representatives."
     end
   end
 end
