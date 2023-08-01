@@ -24,7 +24,7 @@ RSpec.describe "POST /api/v0/quotes", type: :request do
       end
 
       it "with correct cost estimation field in the response" do
-        expect(json_response["cost"]).to eq(0.64)
+        expect(json_response["cost"]).to eq(637)
       end
     end
 
@@ -52,7 +52,7 @@ RSpec.describe "POST /api/v0/quotes", type: :request do
       end
 
       it "with correct cost estimation field in the response" do
-        expect(json_response["cost"]).to eq(0.8)
+        expect(json_response["cost"]).to eq(797)
       end
     end
 
@@ -80,7 +80,7 @@ RSpec.describe "POST /api/v0/quotes", type: :request do
       end
 
       it "with correct cost estimation field in the response" do
-        expect(json_response["cost"]).to eq(0.96)
+        expect(json_response["cost"]).to eq(956)
       end
     end
 
@@ -108,7 +108,7 @@ RSpec.describe "POST /api/v0/quotes", type: :request do
       end
 
       it "with correct cost estimation field in the response" do
-        expect(json_response["cost"]).to eq(1.28)
+        expect(json_response["cost"]).to eq(1275)
       end
     end
 
