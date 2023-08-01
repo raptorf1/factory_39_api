@@ -39,4 +39,4 @@ lorry / 2
 
 The price we charge depends on the distance between two postcodes. We won't implement postcode geocoding here, so instead let's use a basic formula for working out the price for a quote between two postcodes. The process is to take the base-36 integer of each postcode, substract the delivery postcode from the pickup postcode and then divide by 1000. If the result is negative, turn it into a positive.
 
-price = (((to_postcode.to_i(36) - from_postcode.to_i(36))).to_f/1000).abs.round(2)
+`price = (((to_postcode.to_i(36) - from_postcode.to_i(36))).to_f/1000).abs.round(2)`
