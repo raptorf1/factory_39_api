@@ -136,7 +136,9 @@ RSpec.describe "POST /api/v0/quotes", type: :request do
       end
 
       it "with correct cost estimation field in the response" do
-        expect(json_response["cost"]).to eq("For the type of transport: plane, please speak with one of our representatives.")
+        expect(json_response["cost"]).to eq(
+          "For the type of transport: plane, please speak with one of our representatives."
+        )
       end
     end
   end
