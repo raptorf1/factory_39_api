@@ -1,6 +1,6 @@
 module PriceService
   def self.calculcate_price_per_vehicle(postcode_from, postcode_to, vehicle)
-    calulation_algorithm = (((postcode_to.to_i(36) - postcode_from.to_i(36))).to_f/1000000).abs.round(2)
+    calulation_algorithm = (((postcode_to.to_i(36) - postcode_from.to_i(36))).to_f / 1_000_000).abs.round(2)
 
     case vehicle
     when "bicycle"
