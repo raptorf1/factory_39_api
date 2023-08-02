@@ -1,7 +1,7 @@
 RSpec.describe "POST /api/v0/quotes", type: :request do
   describe "successfully" do
     describe "when the vehicle is bicycle" do
-      before { post "/api/v0/quotes", params: { from: "EC2A 3LT", to: "NW8 8TE", vehicle: "bicycle" } }
+      before { post "/api/v0/quotes", params: { from: "  EC2A 3LT  ", to: " NW8 8TE  ", vehicle: " bicycle  " } }
 
       it "with 200 status" do
         expect(response.status).to eq 200

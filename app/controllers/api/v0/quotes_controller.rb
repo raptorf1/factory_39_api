@@ -7,10 +7,11 @@ class Api::V0::QuotesController < ApplicationController
     render json: { errors: validate_postcodes }, status: 400 and return if !validate_postcodes.empty?
 
     render json: {
-             from: params[:from],
-             to: params[:to],
-             vehicle: params[:vehicle],
-             cost: PriceService.calculcate_price_per_vehicle(params[:from], params[:to], params[:vehicle])
+             from: params[:from].strip,
+             to: params[:to].strip,
+             vehicle: params[:vehicle].strip,
+             cost:
+               PriceService.calculcate_price_per_vehicle(params[:from].strip, params[:to].strip, params[:vehicle].strip)
            },
            status: 200
   end
