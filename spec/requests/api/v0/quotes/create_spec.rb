@@ -152,13 +152,19 @@ RSpec.describe "POST /api/v0/quotes", type: :request do
       end
 
       it "with correct number of error messages" do
-        expect(json_response["errors"].count).to eq 1
+        expect(json_response["errors"].count).to eq 3
       end
 
-      it "with correct error message" do
-        expect(
-          json_response["errors"].first
-        ).to eq "Both FROM and TO postcodes and a VEHICLE type needed to calculate a cost!"
+      it "with correct error messages" do
+        expect(json_response["errors"].first).to eq "Origin postcode must be provided!"
+      end
+
+      it "with correct error messages" do
+        expect(json_response["errors"].second).to eq "Destination postcode must be provided!"
+      end
+
+      it "with correct error messages" do
+        expect(json_response["errors"].third).to eq "Vehicle type must be provided!"
       end
     end
   end

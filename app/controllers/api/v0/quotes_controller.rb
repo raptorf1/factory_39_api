@@ -1,11 +1,7 @@
 class Api::V0::QuotesController < ApplicationController
   def create
-    if params[:from].nil? || params[:to].nil? || params[:vehicle].nil?
-      render json: {
-               errors: ["Both FROM and TO postcodes and a VEHICLE type needed to calculate a cost!"]
-             },
-             status: 400 and return
-    end
+    validate_params = ValidationService.validate_params(params[:from], params[:to], params[:vehicle])
+    render json: { errors: validate_params }, status: 400 and return if !validate_params.empty?
 
     render json: {
              from: params[:from],
