@@ -167,5 +167,25 @@ RSpec.describe "POST /api/v0/quotes", type: :request do
         expect(json_response["errors"].third).to eq "Vehicle type must be provided!"
       end
     end
+
+    describe "when non valid UK postcodes are passed" do
+      before { post "/api/v0/quotes", params: { from: "14g89", to: "258kl", vehicle: "van" } }
+
+      it "with 400 status" do
+        expect(response.status).to eq 400
+      end
+
+      it "with correct number of error messages" do
+        expect(json_response["errors"].count).to eq 2
+      end
+
+      it "with correct error messages" do
+        expect(json_response["errors"].first).to eq "Origin postcode is not a valid UK postcode!"
+      end
+
+      it "with correct error messages" do
+        expect(json_response["errors"].second).to eq "Destination postcode is not a valid UK postcode!"
+      end
+    end
   end
 end
